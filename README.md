@@ -5,6 +5,8 @@ Calculates umber of $PAINT tokens burned through painting on the online collabor
 Can only calculate those burned on ETH at the moment, but not MATIC, so may be over half off right now.
 
 # Installation
+sudo apt install git nodejs
+
 git clone https://github.com/orchardstreet/PAINT-pixels-burned
 
 cd PAINT-pixels-burned
