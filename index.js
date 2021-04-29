@@ -36,7 +36,7 @@ async function mainn() {
 		//console.log("Processed NFT id #: " + i + "out of " + latestBlockchainID);
 		console.log(i + "th NFT");
         }
-	console.log("NUMBER OF PIXELS: " + pixels);
+	console.log("NUMBER OF PIXELS: " + pixels/2);
 }
 
 
