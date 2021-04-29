@@ -30,8 +30,8 @@ async function mainn() {
     var latestBlockchainID = await contract1.methods.totalSupply().call();
     for (var i = 0; i <= latestBlockchainID - 1; i++) {
         var temp = await getRemoteTokenTransactionDataForId(i);
-        process(temp.transparentPixelGroups, temp.pixelGroups, temp.pixelData);
         console.log(i + "th NFT");
+        process(temp.transparentPixelGroups, temp.pixelGroups, temp.pixelData);
     }
     console.log("NUMBER OF PIXELS: " + pixels);
     console.log("AMOUNT OF $PAINT burned: " + pixels / 2);
