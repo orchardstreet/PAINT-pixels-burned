@@ -73,29 +73,24 @@ function process(decimalTransparentPixelGroups, decimalPixelGroups, decimalPixel
 
 
     //beginning of hexTransparentPixelGroups
-    if (decimalTransparentPixelGroups.length != 0) {
-        //convert decimaltransparentpixelgroups to hex, and leftpad them
+    if (decimalTransparentPixelGroups.length != 0 ) {
+
         for (var x = 0; x < decimalTransparentPixelGroups.length; x++) {
             hexTransparentPixelGroups.push(decToHex(decimalTransparentPixelGroups[x]));
             hexTransparentPixelGroups[x] = hexTransparentPixelGroups[x].slice(2);
-            var length4 = hexTransparentPixelGroups[x].length;
-            if (length4 < 64) {
-                var difference = 64 - length4;
-                hexTransparentPixelGroups[x] = leftpadwithzeros(difference, hexTransparentPixelGroups[x]);
+           if (hexTransparentPixelGroups[x] % 2 == 1) {
+                    hexTransparentPixelGroups[x] = "0" + hexTransparentPixelGroups[x];
             }
-        }
-
-
-        for (var x = 0; x < decimalTransparentPixelGroups.length; x++) {
             for (var y = 0; y < hexTransparentPixelGroups[x].length; y = y + 2) {
-                if (hexTransparentPixelGroups[x].slice(y, y + 2) == "00") {
-                    //		console.log("hex value of transparenPixelGroups: it's 00");
-                } else {
+                    if (hexTransparentPixelGroups[x].slice(y,y+2) == "00")
+                    {
+            //              console.log("hex value of transparenPixelGroups: it's 00");
+                    } else {
                     pixels++;
-                }
+                   }
             }
         }
-        //closing tag forr transparentpixelgroups
+    //closing tag forr transparentpixelgroups
     }
     console.log("finished processing");
 }
