@@ -70,7 +70,7 @@ function process(decimalTransparentPixelGroups, decimalPixelGroups, decimalPixel
         for (var x = 0; x < decimalTransparentPixelGroups.length; x++) {
             hexTransparentPixelGroups.push(decToHex(decimalTransparentPixelGroups[x]));
             hexTransparentPixelGroups[x] = hexTransparentPixelGroups[x].slice(2);
-           if (hexTransparentPixelGroups[x] % 2 == 1) {
+           if (hexTransparentPixelGroups[x].length % 2 != 0) {
                     hexTransparentPixelGroups[x] = "0" + hexTransparentPixelGroups[x];
             }
             for (var y = 0; y < hexTransparentPixelGroups[x].length; y = y + 2) {
