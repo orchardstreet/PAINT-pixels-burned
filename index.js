@@ -31,7 +31,6 @@ async function mainn() {
     var latestBlockchainID = await contract1.methods.totalSupply().call();
         for (var i = 0; i <= latestBlockchainID - 1;  i++) {
                 var temp = await getRemoteTokenTransactionDataForId(i);
-		//console.log(temp.transparentPixelGroups);
 		process(temp.transparentPixelGroups,temp.pixelGroups,temp.pixelData);
 		//console.log("Processed NFT id #: " + i + "out of " + latestBlockchainID);
 		console.log(i + "th NFT");
