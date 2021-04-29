@@ -1,5 +1,4 @@
 const { abi1, abi2, address1, address2, url } = require('./blockchaincredentials.js');
-const dotenv = require('dotenv').config();
 var Web3 = require('web3');
 var web3 = new Web3(url);
 var contract1 = new web3.eth.Contract(abi1, address1);
@@ -29,13 +28,12 @@ function getRemoteTokenTransactionDataForId(tokenId) {
 
 async function mainn() {
     var latestBlockchainID = await contract1.methods.totalSupply().call();
-        for (var i = 0; i <= latestBlockchainID - 1;  i++) {
-                var temp = await getRemoteTokenTransactionDataForId(i);
-		process(temp.transparentPixelGroups,temp.pixelGroups,temp.pixelData);
-		//console.log("Processed NFT id #: " + i + "out of " + latestBlockchainID);
-		console.log(i + "th NFT");
-        }
-	console.log("NUMBER OF PIXELS: " + pixels/2);
+    for (var i = 0; i <= latestBlockchainID - 1; i++) {
+        var temp = await getRemoteTokenTransactionDataForId(i);
+        process(temp.transparentPixelGroups, temp.pixelGroups, temp.pixelData);
+        console.log(i + "th NFT");
+    }
+    console.log("NUMBER OF PIXELS: " + pixels / 2);
 }
 
 
@@ -44,70 +42,69 @@ mainn();
 
 
 function leftpadwithzeros(num, str) {
-	  var pad = Array(num + 1).join('0');
-		      return (pad + str);
-			        return (str + pad).substring(0, pad.length);
+    var pad = Array(num + 1).join('0');
+    return (pad + str);
+    return (str + pad).substring(0, pad.length);
 }
 
 
-function process(decimalTransparentPixelGroups,decimalPixelGroups,decimalPixelData) {
-//	    document.getElementById("response").innerHTML = "";
-//declare variables
-var hexTransparentPixelGroups = [];
-var hexPixelData = [];
+function process(decimalTransparentPixelGroups, decimalPixelGroups, decimalPixelData) {
+    //	    document.getElementById("response").innerHTML = "";
+    //declare variables
+    var hexTransparentPixelGroups = [];
+    var hexPixelData = [];
 
-//beginning of pixelData
-if (decimalPixelData.length != 0) {
+    //beginning of pixelData
+    if (decimalPixelData.length != 0) {
 
-    //convert decimalPixelData to hex, and leftpad them
-    for (var x = 0; x < decimalPixelData.length; x++) {
-        hexPixelData.push(decToHex(decimalPixelData[x]));
-        hexPixelData[x] = hexPixelData[x].slice(2);
-	var remainder2 = hexPixelData[x].length % 8;
-	if (remainder2) {
-            hexPixelData[x] = leftpadwithzeros(8-remainder2,hexPixelData[x]);
-	}
-	    pixels += hexPixelData[x].length / 8;
-    }
-}
-
-
-//beginning of pixel groups
-if (decimalPixelGroups.length != 0) {
-    for (var x = 0; x < decimalPixelGroups.length; x++) {
-	    pixels += 32;
-    }
-}
-
-
-//beginning of hexTransparentPixelGroups
-if (decimalTransparentPixelGroups.length != 0 ) {
-    //convert decimaltransparentpixelgroups to hex, and leftpad them
-    for (var x = 0; x < decimalTransparentPixelGroups.length; x++) {
-        hexTransparentPixelGroups.push(decToHex(decimalTransparentPixelGroups[x]));
-        hexTransparentPixelGroups[x] = hexTransparentPixelGroups[x].slice(2);
-	var length4 = hexTransparentPixelGroups[x].length;
-        if (length4 < 64) {
-	    var difference = 64 - length4;
-	    hexTransparentPixelGroups[x] = leftpadwithzeros(difference,hexTransparentPixelGroups[x]);
-	    }
-    }
-
-
-    for (var x = 0; x < decimalTransparentPixelGroups.length; x++) {
-        for (var y = 0; y < hexTransparentPixelGroups[x].length; y = y + 2) {
-		if (hexTransparentPixelGroups[x].slice(y,y+2) == "00")
-		{
-	//		console.log("hex value of transparenPixelGroups: it's 00");
-		} else {
-	//	console.log("hex value of transparentPixelGroups: " + hexToDec(hexTransparentPixelGroups[x].slice(y,y+2)));
-		pixels++;
-		}
+        //convert decimalPixelData to hex, and leftpad them
+        for (var x = 0; x < decimalPixelData.length; x++) {
+            hexPixelData.push(decToHex(decimalPixelData[x]));
+            hexPixelData[x] = hexPixelData[x].slice(2);
+            var remainder2 = hexPixelData[x].length % 8;
+            if (remainder2) {
+                hexPixelData[x] = leftpadwithzeros(8 - remainder2, hexPixelData[x]);
+            }
+            pixels += hexPixelData[x].length / 8;
         }
     }
-    //closing tag forr transparentpixelgroups
-}
-console.log("finished processing");
+
+
+    //beginning of pixel groups
+    if (decimalPixelGroups.length != 0) {
+        for (var x = 0; x < decimalPixelGroups.length; x++) {
+            pixels += 32;
+        }
+    }
+
+
+    //beginning of hexTransparentPixelGroups
+    if (decimalTransparentPixelGroups.length != 0) {
+        //convert decimaltransparentpixelgroups to hex, and leftpad them
+        for (var x = 0; x < decimalTransparentPixelGroups.length; x++) {
+            hexTransparentPixelGroups.push(decToHex(decimalTransparentPixelGroups[x]));
+            hexTransparentPixelGroups[x] = hexTransparentPixelGroups[x].slice(2);
+            var length4 = hexTransparentPixelGroups[x].length;
+            if (length4 < 64) {
+                var difference = 64 - length4;
+                hexTransparentPixelGroups[x] = leftpadwithzeros(difference, hexTransparentPixelGroups[x]);
+            }
+        }
+
+
+        for (var x = 0; x < decimalTransparentPixelGroups.length; x++) {
+            for (var y = 0; y < hexTransparentPixelGroups[x].length; y = y + 2) {
+                if (hexTransparentPixelGroups[x].slice(y, y + 2) == "00") {
+                    //		console.log("hex value of transparenPixelGroups: it's 00");
+                } else {
+                    //	console.log("hex value of transparentPixelGroups: " + hexToDec(hexTransparentPixelGroups[x].slice(y,y+2)));
+                    pixels++;
+                }
+            }
+        }
+        //closing tag forr transparentpixelgroups
+    }
+    console.log("finished processing");
 }
 
 
@@ -205,4 +202,3 @@ function hexToDec(hexStr) {
     return convertBase(hexStr, 16, 10);
 }
 //END OF DECTOHEX
-
