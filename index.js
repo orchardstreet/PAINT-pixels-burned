@@ -58,16 +58,10 @@ function process(decimalTransparentPixelGroups, decimalPixelGroups, decimalPixel
 
     //beginning of pixelData
     if (decimalPixelData.length != 0) {
-
-        //convert decimalPixelData to hex, and leftpad them
         for (var x = 0; x < decimalPixelData.length; x++) {
             hexPixelData.push(decToHex(decimalPixelData[x]));
             hexPixelData[x] = hexPixelData[x].slice(2);
-            var remainder2 = hexPixelData[x].length % 8;
-            if (remainder2) {
-                hexPixelData[x] = leftpadwithzeros(8 - remainder2, hexPixelData[x]);
-            }
-            pixels += hexPixelData[x].length / 8;
+            pixels += Math.ceil(hexPixelData[x].length / 8);
         }
     }
 
