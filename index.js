@@ -34,7 +34,8 @@ async function mainn() {
         process(temp.transparentPixelGroups, temp.pixelGroups, temp.pixelData);
     }
     console.log("NUMBER OF PIXELS: " + pixels);
-    console.log("AMOUNT OF $PAINT burned: " + pixels / 2);
+    console.log("NUMBER OF NFTs PROCESSED FROM ETH: " + (latestBlockchainID - 1));
+    console.log("AMOUNT OF $PAINT BURNED ON ETH: " + pixels / 2);
     
 }
 
