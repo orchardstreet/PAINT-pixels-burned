@@ -49,7 +49,6 @@ function leftpadwithzeros(num, str) {
 
 
 function process(decimalTransparentPixelGroups, decimalPixelGroups, decimalPixelData) {
-    //	    document.getElementById("response").innerHTML = "";
     //declare variables
     var hexTransparentPixelGroups = [];
     var hexPixelData = [];
@@ -97,7 +96,6 @@ function process(decimalTransparentPixelGroups, decimalPixelGroups, decimalPixel
                 if (hexTransparentPixelGroups[x].slice(y, y + 2) == "00") {
                     //		console.log("hex value of transparenPixelGroups: it's 00");
                 } else {
-                    //	console.log("hex value of transparentPixelGroups: " + hexToDec(hexTransparentPixelGroups[x].slice(y,y+2)));
                     pixels++;
                 }
             }
