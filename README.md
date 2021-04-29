@@ -6,9 +6,13 @@ Can only calculate those burned on ETH at the moment, but not MATIC, so may be o
 
 # Installation
 git clone https://github.com/orchardstreet/PAINT-pixels-burned
+
 cd PAINT-pixels-burned
+
 Put Ethereum API key in line 2 of blockchaincredentials.js
+
 npm init
+
 npm install web3
 
 # Run
