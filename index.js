@@ -43,14 +43,6 @@ async function mainn() {
 mainn();
 
 
-
-function leftpadwithzeros(num, str) {
-    var pad = Array(num + 1).join('0');
-    return (pad + str);
-    return (str + pad).substring(0, pad.length);
-}
-
-
 function process(decimalTransparentPixelGroups, decimalPixelGroups, decimalPixelData) {
     //declare variables
     var hexTransparentPixelGroups = [];
