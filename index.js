@@ -175,10 +175,4 @@ function decToHex(decStr) {
     var hex = convertBase(decStr, 10, 16);
     return hex ? '0x' + hex : null;
 }
-
-function hexToDec(hexStr) {
-    if (hexStr.substring(0, 2) === '0x') hexStr = hexStr.substring(2);
-    hexStr = hexStr.toLowerCase();
-    return convertBase(hexStr, 16, 10);
-}
 //END OF DECTOHEX
