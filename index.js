@@ -74,9 +74,7 @@ function process(decimalTransparentPixelGroups, decimalPixelGroups, decimalPixel
 
     //beginning of pixel groups
     if (decimalPixelGroups.length != 0) {
-        for (var x = 0; x < decimalPixelGroups.length; x++) {
-            pixels += 32;
-        }
+            pixels += decimalPixelGroups.length * 32;
     }
 
 
