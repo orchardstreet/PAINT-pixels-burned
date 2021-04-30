@@ -34,7 +34,7 @@ function getRemoteTokenTransactionDataForId(tokenId) {
 }
 
 function failureCallback(error) {
-    console.error("Error generating audio file: " + error);
+    console.error("Error: " + error);
 }
 
 function getRemoteTokenTransactionDataForId_matic(tokenId, fromm, tooo) {
