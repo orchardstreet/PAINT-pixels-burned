@@ -1,8 +1,8 @@
 //put Infura Ethereum API key down in the url vaiable below, as a string
-var url = 'https://mainnet.infura.io/v3/1ad34b502b5945d79b7a042ae8422dda';
+var url = '';
 
 //put MATIC api key below, recommend chainstacklabs public websockets API, as listed on MATICs website
-var url2 = 'wss://ws-matic-mainnet.chainstacklabs.com';
+var url2 = '';
 
 var address1 = "0x5bb3d01f32687f92f8636799687e55cba0627704";
 
