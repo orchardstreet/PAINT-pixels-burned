@@ -13,6 +13,8 @@ cd PAINT-pixels-burned
 
 Put Ethereum API key in line 2 of blockchaincredentials.js
 
+Put Matic API key in line 5 of blockchaincredentials.js
+
 npm init
 
 npm install web3
