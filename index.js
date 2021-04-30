@@ -125,7 +125,7 @@ async function mainn() {
     console.log("AMOUNT OF $PAINT BURNED ON ETH: " + ethtotal);
     console.log("AMOUNT OF $PAINT BURNED ON MATIC: " + matictotal);
     var completetotal = ethtotal + matictotal;
-    console.log("\n\n\nTOTAL NUMBER OF PIXELS BURNED: " + completetotal);
+    console.log("\n\n\nTOTAL NUMBER OF $PAINT BURNED: " + completetotal);
 }
 
 
