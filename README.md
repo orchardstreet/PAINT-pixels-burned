@@ -2,8 +2,6 @@
 
 Calculates number of $PAINT tokens burned through painting on the online collaboritive mural called, "Murall".  Unofficial code.
 
-Can only calculate those burned on ETH at the moment, but not MATIC, so may be over half off right now.
-
 # Installation
 sudo apt install git nodejs
 
